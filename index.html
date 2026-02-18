@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moustapha - Portfolio DevOps</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 48px;
+            color: white;
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+        }
+        
+        .badge {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 20px 0;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .info {
+            background: #f5f5f5;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .info p {
+            margin: 10px 0;
+            color: #555;
+            font-size: 1.1em;
+        }
+        
+        .info i {
+            color: #667eea;
+            margin-right: 10px;
+            font-style: normal;
+            font-weight: bold;
+        }
+        
+        .devops-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+        
+        .skill {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9em;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(102, 126, 234, 0.2);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #888;
+            font-size: 0.9em;
+        }
+        
+        .build-info {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+        
+        .greeting {
+            font-size: 1.3em;
+            color: #667eea;
+            text-align: center;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="avatar">👨‍💻</div>
+        <h1>Moustapha Thiam</h1>
+        <div class="badge">🚀 Apprenti DevOps</div>
+        
+        <div class="greeting">
+            👋 Bienvenue sur mon site !
+        </div>
+        
+        <div class="info">
+            <p><i>📋</i> Je m'appelle <strong>Moustapha</strong></p>
+            <p><i>💡</i> J'apprends le <strong>DevOps</strong> avec passion</p>
+            <p><i>🎯</i> Objectif : Maîtriser Jenkins, Docker, Kubernetes</p>
+        </div>
+        
+        <div class="devops-skills">
+            <span class="skill">Jenkins</span>
+            <span class="skill">Docker</span>
+            <span class="skill">Git</span>
+            <span class="skill">Linux</span>
+            <span class="skill">CI/CD</span>
+            <span class="skill">Automation</span>
+        </div>
+        
+        <div class="build-info">
+            ⚡ Généré automatiquement par Jenkins<br>
+            Build #${BUILD_NUMBER} - $(date)
+        </div>
+        
+        <div class="footer">
+            ✨ Portfolio créé avec Jenkins et Docker ✨
+        </div>
+    </div>
+</body>
+</html>
