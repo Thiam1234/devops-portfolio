@@ -2,47 +2,35 @@ pipeline {
     agent any
     
     stages {
-        stage('📥 CLONAGE DU CODE') {
+        stage('📥 RÉCUPÉRATION CODE') {
             steps {
-                git branch: 'main', 
-                    url: 'https://github.com/TON_COMPTE/portfolio-devops-moustapha.git'
-                echo "✅ Code récupéré depuis GitHub"
+                echo 'Récupération du code depuis GitHub...'
+                checkout scm
             }
         }
         
-        stage('🚀 CRÉATION DU SITE') {
+        stage('📝 INFOS') {
             steps {
-                echo "📝 Construction du portfolio..."
-                sh 'ls -la'
-            }
-        }
-        
-        stage('🐳 IMAGE DOCKER') {
-            steps {
-                echo "🐳 Construction de l'image..."
                 sh '''
-                    docker build -t moustapha-portfolio-git:${BUILD_NUMBER} .
-                    docker images | grep moustapha-portfolio-git
+                    echo "Build numéro: ${BUILD_NUMBER}"
+                    echo "Révision Git: ${GIT_COMMIT}"
+                    ls -la
                 '''
             }
         }
         
-        stage('🧪 TEST') {
+        stage('🐳 BUILD DOCKER') {
             steps {
                 sh '''
-                    docker run -d --name test-${BUILD_NUMBER} -p 8888:80 moustapha-portfolio-git:${BUILD_NUMBER}
-                    sleep 3
-                    echo "✅ Portfolio accessible sur http://localhost:8888"
-                    docker stop test-${BUILD_NUMBER}
-                    docker rm test-${BUILD_NUMBER}
+                    docker build -t moustapha-portfolio:${BUILD_NUMBER} .
+                    docker images | grep moustapha-portfolio
                 '''
             }
         }
         
-        stage('🎉 FIN') {
+        stage('✅ SUCCÈS') {
             steps {
-                echo "✅ Déploiement réussi depuis GitHub !"
-                echo "📦 Image: moustapha-portfolio-git:${BUILD_NUMBER}"
+                echo 'Pipeline GitHub → Jenkins → Docker réussi !'
             }
         }
     }
